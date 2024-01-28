@@ -8,14 +8,22 @@ on:
 jobs:
   renovate:
     runs-on: ubuntu-latest
+
+    env:
+      RENOVATE_CONSTRAINTS: '{"python": "3.6"}'
+      RENOVATE_CONSTRAINTS_FILTERING: "strict"    
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-      - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v40.0.2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          token: ${{ secrets.RENOVATE_TOKEN }}
-          docker-volumes: |
-            /tmp:/tmp ;
-            /home:/home ;
-            /foo:/bar
+          node-version: 14  # You can adjust the Node.js version as needed
+
+      - name: Install Renovate
+        run: npm install -g renovate
+
+      - name: Run Renovate
+        run: renovate
