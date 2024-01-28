@@ -8,14 +8,11 @@ on:
 jobs:
   renovate:
     runs-on: ubuntu-latest
-
-    container:
-      image: ghcr.io/renovatebot/renovate:latest
-
     steps:
-      - name: Checkout Repository
-        run: git checkout $GITHUB_REPOSITORY
-
-      - name: Run Your Commands
-        run: |
-           renovate fazizsoltani/renovate-test
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v40.0.2
+        with:
+          configurationFile: example/renovate-config.js
+          token: ${{ secrets.RENOVATE_TOKEN }}
