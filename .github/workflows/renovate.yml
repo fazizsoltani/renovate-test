@@ -9,10 +9,6 @@ jobs:
   renovate:
     runs-on: ubuntu-latest
 
-    env:
-      RENOVATE_CONSTRAINTS: '{"python": "3.6"}'
-      RENOVATE_CONSTRAINTS_FILTERING: "strict"    
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
