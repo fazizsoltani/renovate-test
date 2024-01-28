@@ -4,7 +4,6 @@ module.exports = {
   onboarding: true,
   platform: 'github',
   includeForks: true,
-  dryRun: 'full',
   repositories: ['fazizsoltani/renovate-test'],
 
 };
