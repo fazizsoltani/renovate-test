@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        run: git checkout $GITHUB_REF
+        run: git checkout $GITHUB_REPOSITORY
 
       - name: Run Your Commands
         run: |
