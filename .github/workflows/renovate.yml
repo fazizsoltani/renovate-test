@@ -16,3 +16,7 @@ jobs:
         with:
           configurationFile: example/renovate-config.js
           token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          RENOVATE_CONSTRAINTS: '{"python": "3.6"}'
+          RENOVATE_CONSTRAINTS_FILTERING: "strict"
+      
